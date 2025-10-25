@@ -16,6 +16,7 @@ class ConferenceInfoViewModel @Inject constructor(
 
     override fun obtainEvent(viewEvent: ConferenceInfoEvent) {
         when (viewEvent) {
+            ConferenceInfoEvent.OnNavigateBack -> sendAction(ConferenceInfoAction.NavigateBack)
             ConferenceInfoEvent.GetConferenceInfo -> getConferenceInfo()
         }
     }

@@ -39,9 +39,12 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.ymuratov.partnerkin_test.R
+import dev.ymuratov.partnerkin_test.core.ui.component.button.ParterkinIconButton
 import dev.ymuratov.partnerkin_test.core.ui.component.image.PartnerkinAsyncImage
+import dev.ymuratov.partnerkin_test.core.ui.component.topbar.PartnerkinPrimaryTopBar
 import dev.ymuratov.partnerkin_test.core.ui.theme.PartnerkinTheme
 import dev.ymuratov.partnerkin_test.core.ui.utils.collectFlowWithLifecycle
+import dev.ymuratov.partnerkin_test.feature.conf_info.ui.model.ConferenceInfoAction
 import dev.ymuratov.partnerkin_test.feature.conf_info.ui.model.ConferenceInfoEvent
 import dev.ymuratov.partnerkin_test.feature.conf_info.ui.model.ConferenceInfoState
 import dev.ymuratov.partnerkin_test.feature.conf_info.ui.viewmodel.ConferenceInfoViewModel
@@ -49,10 +52,13 @@ import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 
 @Composable
-fun ConferenceInfoContainer(modifier: Modifier = Modifier, viewModel: ConferenceInfoViewModel = hiltViewModel()) {
+fun ConferenceInfoContainer(
+    modifier: Modifier = Modifier, viewModel: ConferenceInfoViewModel = hiltViewModel(), navigateBack: () -> Unit = {}
+) {
     val state by viewModel.viewState.collectAsStateWithLifecycle()
     viewModel.viewActions.collectFlowWithLifecycle { action ->
         when (action) {
+            ConferenceInfoAction.NavigateBack -> navigateBack()
             null -> {}
         }
     }
@@ -80,7 +86,13 @@ private fun ConferenceInfoContent(
 
     val context = LocalContext.current
 
-    Scaffold(modifier = modifier) { innerPadding ->
+    Scaffold(modifier = modifier, topBar = {
+        PartnerkinPrimaryTopBar(navigationIcon = {
+            ParterkinIconButton(icon = R.drawable.ic_arrow_back) {
+                onEvent(ConferenceInfoEvent.OnNavigateBack)
+            }
+        })
+    }) { innerPadding ->
         state.conferenceInfo?.let { info ->
             Column(
                 modifier = Modifier

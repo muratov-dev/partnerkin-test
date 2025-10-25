@@ -7,6 +7,7 @@ import dev.ymuratov.partnerkin_test.feature.confs.ui.model.ConferencesAction
 import dev.ymuratov.partnerkin_test.feature.confs.ui.model.ConferencesEvent
 import dev.ymuratov.partnerkin_test.feature.confs.ui.model.ConferencesState
 import kotlinx.coroutines.flow.collectLatest
+import java.time.YearMonth
 import javax.inject.Inject
 
 @HiltViewModel
@@ -24,7 +25,12 @@ class ConferencesViewModel @Inject constructor(
     init {
         viewModelScoped {
             conferencesRepository.conferencesFlow.collectLatest { conferences ->
-                updateViewState { copy(conferences = conferences) }
+                val groupedConferences = conferences.sortedByDescending {
+                    it.startDate
+                }.groupBy {
+                    YearMonth.of(it.startDate.year, it.startDate.month)
+                }
+                updateViewState { copy(groupedConferences = groupedConferences) }
             }
         }
     }

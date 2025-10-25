@@ -8,6 +8,6 @@ import androidx.compose.ui.Modifier
 import dev.ymuratov.partnerkin_test.core.ui.theme.PartnerkinTheme
 
 @Composable
-fun Modifier.defaultModifier(): Modifier = systemBarsPadding()
-    .fillMaxSize()
+fun Modifier.defaultModifier(): Modifier = fillMaxSize()
     .background(PartnerkinTheme.colors.backgroundPrimary)
+    .systemBarsPadding()
