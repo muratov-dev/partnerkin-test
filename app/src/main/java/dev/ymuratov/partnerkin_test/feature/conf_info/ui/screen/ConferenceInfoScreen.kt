@@ -52,6 +52,7 @@ import dev.ymuratov.partnerkin_test.feature.conf_info.ui.model.ConferenceInfoSta
 import dev.ymuratov.partnerkin_test.feature.conf_info.ui.viewmodel.ConferenceInfoViewModel
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
+import java.util.Locale
 
 @Composable
 fun ConferenceInfoContainer(
@@ -142,10 +143,15 @@ private fun ConferenceInfoContent(
                         modifier = Modifier.size(24.dp)
                     )
 
-                    val formattedDate = info.startDate.format(DateTimeFormatter.ofPattern("dd MMMM yyyy"))
+                    val formattedDate = info.startDate.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale("ru", "RU")))
                     val daysCount = ChronoUnit.DAYS.between(info.startDate, info.endDate) + 1
+                    val daysText = when (daysCount) {
+                        1L -> stringResource(R.string.conference_info_days_1_text)
+                        in 2L..4L -> stringResource(R.string.conference_info_days_2_text)
+                        else -> stringResource(R.string.conference_info_days_3_text)
+                    }
                     Text(
-                        text = "$formattedDate, $daysCount",
+                        text = "$formattedDate, $daysCount $daysText",
                         style = PartnerkinTheme.typography.bodyMedium,
                         color = PartnerkinTheme.colors.textPrimary
                     )

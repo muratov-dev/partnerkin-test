@@ -37,7 +37,8 @@ import dev.ymuratov.partnerkin_test.feature.confs.ui.model.ConferencesAction
 import dev.ymuratov.partnerkin_test.feature.confs.ui.model.ConferencesEvent
 import dev.ymuratov.partnerkin_test.feature.confs.ui.model.ConferencesState
 import dev.ymuratov.partnerkin_test.feature.confs.ui.viewmodel.ConferencesViewModel
-import java.time.format.DateTimeFormatter
+import java.time.format.TextStyle
+import java.util.Locale
 
 @Composable
 fun ConferencesContainer(
@@ -107,9 +108,11 @@ private fun ConferencesContent(
                     }
                 } else {
                     state.groupedConferences.forEach { (date, itemsForDate) ->
+                        val month = date.month.getDisplayName(TextStyle.FULL_STANDALONE, Locale("ru"))
+                        val headerText = "$month, ${date.year}"
                         item {
                             Text(
-                                text = date.format(DateTimeFormatter.ofPattern("MMMM, yyyy")),
+                                text = headerText,
                                 style = PartnerkinTheme.typography.h2,
                                 color = PartnerkinTheme.colors.textPrimary,
                                 modifier = Modifier

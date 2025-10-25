@@ -25,7 +25,7 @@ class ConferencesViewModel @Inject constructor(
     init {
         viewModelScoped {
             conferencesRepository.conferencesFlow.collectLatest { conferences ->
-                val groupedConferences = conferences.sortedByDescending {
+                val groupedConferences = conferences.sortedBy {
                     it.startDate
                 }.groupBy {
                     YearMonth.of(it.startDate.year, it.startDate.month)
