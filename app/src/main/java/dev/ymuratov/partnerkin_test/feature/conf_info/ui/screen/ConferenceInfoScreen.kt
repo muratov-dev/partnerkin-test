@@ -3,6 +3,7 @@ package dev.ymuratov.partnerkin_test.feature.conf_info.ui.screen
 import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -30,6 +31,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
@@ -102,7 +104,7 @@ private fun ConferenceInfoContent(
             ) {
                 Spacer(Modifier.size(12.dp))
                 Text(
-                    text = "Конференция",
+                    text = stringResource(R.string.conference_info_name_label),
                     style = PartnerkinTheme.typography.bodyRegular,
                     color = PartnerkinTheme.colors.textPrimary
                 )
@@ -171,7 +173,7 @@ private fun ConferenceInfoContent(
                         modifier = Modifier.fillMaxWidth()
                     ) {
                         Text(
-                            text = "Регистрация",
+                            text = stringResource(R.string.conference_info_register_button),
                             style = PartnerkinTheme.typography.bodyMedium,
                             color = PartnerkinTheme.colors.textTertiary
                         )
@@ -179,7 +181,9 @@ private fun ConferenceInfoContent(
                 }
                 Spacer(Modifier.size(20.dp))
                 Text(
-                    text = "О событии", style = PartnerkinTheme.typography.h2, color = PartnerkinTheme.colors.textPrimary
+                    text = stringResource(R.string.conference_info_about_label),
+                    style = PartnerkinTheme.typography.h2,
+                    color = PartnerkinTheme.colors.textPrimary
                 )
                 Spacer(Modifier.size(12.dp))
                 Text(
@@ -188,6 +192,12 @@ private fun ConferenceInfoContent(
                     color = PartnerkinTheme.colors.textPrimary
                 )
             }
+        } ?: Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Text(
+                text = stringResource(R.string.conference_info_loading_text),
+                style = PartnerkinTheme.typography.bodyMedium,
+                color = PartnerkinTheme.colors.textPrimary
+            )
         }
     }
 }

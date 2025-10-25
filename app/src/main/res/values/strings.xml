@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">partnerkin-test</string>
     <string name="conferences_title">Конференции</string>
+    <string name="conference_info_name_label">Конференция</string>
+    <string name="conference_info_register_button">Регистрация</string>
+    <string name="conference_info_about_label">О событии</string>
+    <string name="conference_info_loading_text">Информация о конференции загружается</string>
 </resources>
