@@ -47,6 +47,11 @@ android {
     }
 }
 
+secrets {
+    propertiesFileName = "secrets.properties"
+    defaultPropertiesFileName = "secrets.default.properties"
+}
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -68,7 +73,6 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.bundles.okhttp)
     implementation(libs.bundles.retrofit)
-    implementation(libs.bundles.paging)
 
     //UI
     implementation(libs.coil)
