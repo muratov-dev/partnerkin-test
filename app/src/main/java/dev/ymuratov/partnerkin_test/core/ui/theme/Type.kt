@@ -33,6 +33,18 @@ data class PartnerkinTypography(
         fontSize = 24.sp,
         lineHeight = TextUnit(1.2f, type = TextUnitType.Em),
     ),
+    val h2: TextStyle = TextStyle(
+        fontFamily = interFamily,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 18.sp,
+        lineHeight = TextUnit(1.4f, type = TextUnitType.Em),
+    ),
+    val bodyMedium: TextStyle = TextStyle(
+        fontFamily = interFamily,
+        fontWeight = FontWeight.Medium,
+        fontSize = 16.sp,
+        lineHeight = TextUnit(1.6f, type = TextUnitType.Em),
+    ),
     val bodyRegular: TextStyle = TextStyle(
         fontFamily = interFamily,
         fontWeight = FontWeight.Normal,

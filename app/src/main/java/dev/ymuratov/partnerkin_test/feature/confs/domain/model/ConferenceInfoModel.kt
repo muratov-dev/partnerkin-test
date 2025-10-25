@@ -15,4 +15,6 @@ data class ConferenceInfoModel(
     val status: ConferenceStatusModel,
     val statusTitle: String,
     val type: String,
+    val about: String? = null,
+    val registerUrl: String? = null,
 )

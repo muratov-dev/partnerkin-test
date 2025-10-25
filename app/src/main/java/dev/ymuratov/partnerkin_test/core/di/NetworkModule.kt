@@ -6,6 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dev.ymuratov.partnerkin_test.BuildConfig
 import dev.ymuratov.partnerkin_test.core.data.interceptor.NetworkConnectionInterceptor
+import dev.ymuratov.partnerkin_test.feature.conf_info.data.remote.ConferenceInfoApiService
 import dev.ymuratov.partnerkin_test.feature.confs.data.remote.ConferencesApiService
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -49,5 +50,11 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideConferencesApiService(retrofit: Retrofit): ConferencesApiService = retrofit.create(ConferencesApiService::class.java)
+    fun provideConferencesApiService(retrofit: Retrofit): ConferencesApiService =
+        retrofit.create(ConferencesApiService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideConferenceInfoApiService(retrofit: Retrofit): ConferenceInfoApiService =
+        retrofit.create(ConferenceInfoApiService::class.java)
 }

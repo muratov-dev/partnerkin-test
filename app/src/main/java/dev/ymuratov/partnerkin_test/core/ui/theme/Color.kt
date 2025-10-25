@@ -15,6 +15,7 @@ data class PartnerkinColors(
     val iconButtonOnPrimaryDefault: Color = Color.Unspecified,
     val textPrimary: Color = Color.Unspecified,
     val textSecondary: Color = Color.Unspecified,
+    val textTertiary: Color = Color.Unspecified,
     val accent: Color = Color.Unspecified,
     val error: Color = Color.Unspecified,
 ) {
@@ -30,6 +31,7 @@ data class PartnerkinColors(
             iconButtonOnPrimaryDefault = Color(0xFF0E1234),
             textPrimary = Color(0xFF0E1234),
             textSecondary = Color(0x59060A3C),
+            textTertiary = Color(0xFFFFFFFF),
             accent = Color(0xFF456AEF),
             error = Color(0xFFFF3333),
         )

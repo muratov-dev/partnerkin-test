@@ -27,7 +27,9 @@ data class ConferenceInfoDto(
     @SerialName("status_title") val statusTitle: String,
     val type: ConferenceTypeDto,
     @SerialName("type_id") val typeId: Int,
-    val url: String
+    val url: String,
+    val about: String? = null,
+    @SerialName("register_url") val registerUrl: String? = null,
 )
 
 fun ConferenceInfoDto.toDomain(): ConferenceInfoModel {
@@ -43,6 +45,8 @@ fun ConferenceInfoDto.toDomain(): ConferenceInfoModel {
         startDate = LocalDate.parse(startDate),
         status = ConferenceStatusModel.from(status),
         statusTitle = statusTitle,
-        type = type.name
+        type = type.name,
+        about = about,
+        registerUrl = registerUrl
     )
 }
