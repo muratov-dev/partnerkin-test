@@ -1,4 +1,4 @@
-package me.yeahapps.partnerkin_test
+package dev.ymuratov.partnerkin_test
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

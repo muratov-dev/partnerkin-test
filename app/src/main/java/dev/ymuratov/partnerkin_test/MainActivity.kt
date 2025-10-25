@@ -1,4 +1,4 @@
-package me.yeahapps.partnerkin_test
+package dev.ymuratov.partnerkin_test
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import me.yeahapps.partnerkin_test.ui.theme.PartnerkintestTheme
+import dev.ymuratov.partnerkin_test.ui.theme.PartnerkintestTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

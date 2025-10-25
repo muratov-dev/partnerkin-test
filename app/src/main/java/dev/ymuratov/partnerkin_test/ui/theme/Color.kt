@@ -1,4 +1,4 @@
-package me.yeahapps.partnerkin_test.ui.theme
+package dev.ymuratov.partnerkin_test.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

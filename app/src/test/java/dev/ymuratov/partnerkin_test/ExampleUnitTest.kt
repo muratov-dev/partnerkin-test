@@ -1,4 +1,4 @@
-package me.yeahapps.partnerkin_test
+package dev.ymuratov.partnerkin_test
 
 import org.junit.Test
 
