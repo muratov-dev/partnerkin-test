@@ -2,8 +2,10 @@ package dev.ymuratov.partnerkin_test.feature.confs.data.model
 
 
 import dev.ymuratov.partnerkin_test.feature.confs.domain.model.ConferenceInfoModel
+import dev.ymuratov.partnerkin_test.feature.confs.domain.model.ConferenceStatusModel
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import java.time.LocalDate
 
 @Serializable
 data class ConferenceInfoDto(
@@ -33,12 +35,13 @@ fun ConferenceInfoDto.toDomain(): ConferenceInfoModel {
         categories = categories.map { it.toDomain() },
         city = city,
         country = country,
+        endDate = LocalDate.parse(endDate),
         format = format,
         id = id,
         imageUrl = image.url,
         name = name,
-        startDate = startDate,
-        status = status,
+        startDate = LocalDate.parse(startDate),
+        status = ConferenceStatusModel.from(status),
         statusTitle = statusTitle,
         type = type.name
     )

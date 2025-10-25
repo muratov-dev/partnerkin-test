@@ -6,6 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dev.ymuratov.partnerkin_test.BuildConfig
 import dev.ymuratov.partnerkin_test.core.data.interceptor.NetworkConnectionInterceptor
+import dev.ymuratov.partnerkin_test.feature.confs.data.remote.ConferencesApiService
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -45,4 +46,8 @@ object NetworkModule {
         val converterFactory = json.asConverterFactory(contentType)
         return Retrofit.Builder().addConverterFactory(converterFactory).baseUrl(BASE_URL).client(okHttpClient).build()
     }
+
+    @Provides
+    @Singleton
+    fun provideConferencesApiService(retrofit: Retrofit): ConferencesApiService = retrofit.create(ConferencesApiService::class.java)
 }

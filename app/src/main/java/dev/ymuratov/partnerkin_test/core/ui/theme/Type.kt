@@ -21,12 +21,36 @@ val interFamily = FontFamily(
 
 @Immutable
 data class PartnerkinTypography(
+    val headlineLight: TextStyle = TextStyle(
+        fontFamily = interFamily,
+        fontWeight = FontWeight.Light,
+        fontSize = 40.sp,
+        lineHeight = TextUnit(1.4f, type = TextUnitType.Em),
+    ),
+    val h1: TextStyle = TextStyle(
+        fontFamily = interFamily,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 24.sp,
+        lineHeight = TextUnit(1.2f, type = TextUnitType.Em),
+    ),
     val bodyRegular: TextStyle = TextStyle(
         fontFamily = interFamily,
         fontWeight = FontWeight.Normal,
-        fontSize = 15.sp,
+        fontSize = 14.sp,
         lineHeight = TextUnit(1.6f, type = TextUnitType.Em),
-    )
+    ),
+    val labelRegular: TextStyle = TextStyle(
+        fontFamily = interFamily,
+        fontWeight = FontWeight.Normal,
+        fontSize = 12.sp,
+        lineHeight = TextUnit(1.4f, type = TextUnitType.Em),
+    ),
+    val labelSmall: TextStyle = TextStyle(
+        fontFamily = interFamily,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 11.sp,
+        lineHeight = TextUnit(1.4f, type = TextUnitType.Em),
+    ),
 )
 
 internal val LocalPartnerkinTypography = staticCompositionLocalOf { PartnerkinTypography() }
