@@ -36,7 +36,7 @@
 ## Как запустить
 
 ### Для проверки работы приложение скачайте APK по кнопке ниже
-[![Download APK](https://img.shields.io/badge/Download-APK-2E2F39?style=for-the-badge&logo=android&logoColor=white)](https://github.com/muratov-dev/partnerkin-test/releases/download/PartnerkinTest/Partnerkin-1.0.0-release-unsigned.apk)
+[![Download APK](https://img.shields.io/badge/Download-APK-2E2F39?style=for-the-badge&logo=android&logoColor=white)](https://github.com/muratov-dev/partnerkin-test/releases/download/PartnerkinTEST/Partnerkin-1.0.0-release-unsigned.apk)
 <p>Убедитесь, что в настройках телефона включена опция <strong>«Установка приложений из неизвестных источников»</strong>.</p>
 
 ### Чтобы запустить проект в Android Studio
